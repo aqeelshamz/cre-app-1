@@ -23,15 +23,12 @@ import PersonIconBlue from '../assets/icons/blue/person.png';
 import AnalyticsIconBlue from '../assets/icons/blue/analytics.png';
 import AssignmentIconGreen from '../assets/icons/green/assignment.png';
 import PlayIconWhite from '../assets/icons/white/play.png';
-// import {ScrollView} from 'react-native-gesture-handler';
-import {useRoute} from '@react-navigation/native';
 
-const DashboardScreen = (props) => {
-    const route = useRoute();
+const DashboardScreen = () => {
     return (
         <>
-            <ScrollView>
-                <SafeAreaView style={styles.container}>
+            <ScrollView style={styles.container}>
+                <SafeAreaView>
                     <LinearGradient
                         colors={['#2e9869', '#4BDC7B']}
                         style={styles.linearGradient}></LinearGradient>
@@ -45,12 +42,13 @@ const DashboardScreen = (props) => {
                         <View style={styles.dashboardTextContainer}>
                             <Text style={styles.dashboardText}>Dashboard</Text>
                         </View>
-                        <View style={styles.notificationButtonContainer}>
+                        <TouchableOpacity
+                            style={styles.notificationButtonContainer}>
                             <Image
                                 style={styles.notificationButtonImage}
                                 source={NotificationIconWhite}
                             />
-                        </View>
+                        </TouchableOpacity>
                     </View>
                     <TouchableOpacity style={styles.classesButtonContainer}>
                         <Image
@@ -160,16 +158,14 @@ const styles = StyleSheet.create({
     },
     linearGradient: {
         position: 'absolute',
-        height: '35%',
+        height: 250,
         width: '100%',
         borderBottomRightRadius: 20,
         borderBottomLeftRadius: 20,
     },
     header: {
-        // flex: 1,
         justifyContent: 'flex-start',
         flexDirection: 'row',
-        // backgroundColor: 'red',
     },
     creLogoContainer: {
         flex: 1,
@@ -222,7 +218,7 @@ const styles = StyleSheet.create({
         marginLeft: 10,
     },
     videoPlayerContainer: {
-        marginHorizontal: 20,
+        marginHorizontal: 15,
         marginTop: 10,
         borderRadius: 5,
         justifyContent: 'center',
@@ -237,7 +233,7 @@ const styles = StyleSheet.create({
     },
     videoPlayerThumbnail: {
         resizeMode: 'cover',
-        height: 220,
+        height: 180,
         width: '100%',
         borderRadius: 5,
     },
